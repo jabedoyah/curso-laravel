@@ -17,3 +17,4 @@ Route::get('/test', function()
 
 Route::controller('Personal','PersonalController');
 Route::controller('ejemplo','EjemploController');
+Route::controller('clase','Clase2Controller');
