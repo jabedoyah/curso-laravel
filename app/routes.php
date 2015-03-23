@@ -10,9 +10,10 @@ Route::get('/prueba', function()
 	return View::make('prueba');
 });
 
+
 Route::get('/test', function()
 {
-	return View::make('registro.enfermera');
+	return View::make('clase2');
 });
 
 Route::controller('Personal','PersonalController');
