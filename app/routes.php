@@ -12,7 +12,8 @@ Route::get('/prueba', function()
 
 Route::get('/test', function()
 {
-	return View::make('Ejemplo');
+	return View::make('registro.enfermera');
 });
 
-Route::controller('personal','PersonalController');
+Route::controller('Personal','PersonalController');
+Route::controller('ejemplo','EjemploController');
