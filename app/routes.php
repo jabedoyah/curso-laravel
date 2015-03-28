@@ -11,15 +11,18 @@ Route::get('/prueba', function()
 });
 
 
-Route::get('/test', function()
+Route::get('/jabedoyah', function()
 {
-	return View::make('clase2');
+	return View::make('perfil.perfil')
+                ->with("nombre", "Andres");
+
 });
 
 Route::get('/calendario', function()
 {
 	return View::make('calendario');
 });
+
 
 Route::controller('Personal','PersonalController');
 Route::controller('ejemplo','EjemploController');
