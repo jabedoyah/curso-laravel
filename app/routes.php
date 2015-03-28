@@ -7,13 +7,18 @@ Route::get('/', function()
 
 Route::get('/prueba', function()
 {
-	return View::make('prueba');
+	return View::make('Ejemplo');
 });
 
 
 Route::get('/test', function()
 {
 	return View::make('clase2');
+});
+
+Route::get('/calendario', function()
+{
+	return View::make('calendario');
 });
 
 Route::controller('Personal','PersonalController');
