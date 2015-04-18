@@ -14,12 +14,12 @@ location.href="http://www.google.com";*/
     intereses: ["programacion", "deporte"]
 };
 
-alert("El nombre de la persona es: " + persona.nombre);*/
+alert("El nombre de la persona es: " + persona.nombre);
 
 var managerScreen = managerScreen || {};
 managerScreen = {
     cambiarColorFondo : function(color){
-        /*document.body.style.background = color;*/
+        document.body.style.background = color;
         $('body').css('background-color',color)
     },
     
@@ -32,7 +32,7 @@ managerScreen = {
         var i;
         for(i = 0; i < x.length ; i++){
             x[i].style.display ='none';            
-        }*/
+        }
         $('p').hide();
     },
     
@@ -41,7 +41,7 @@ managerScreen = {
         var i;
         for(i = 0; i < x.length ; i++){
             x[i].style.display ='none';            
-        }*/
+        }
         $('p, div').toggle();
     
     },
@@ -60,4 +60,26 @@ managerScreen = {
 };
 
 
-var ms = managerScreen;
+var ms = managerScreen;*/
+
+var fb = {
+    comentar: function(id){
+        var comentario = $("#comentario-"+id);
+        if(comentario.val()!=""){
+            $.ajax({
+                url: 'publicacion/comentar',
+                type: 'POST',
+                async: true,
+                data: {
+                    usuario : 1,
+                    comentario : comentario.val()
+                },
+                success: function(data){
+                    alert('Se ejecuto correctamente');
+                }
+            });
+        }else{
+            alert('Este campo es obligatorio');
+        }
+    }
+};

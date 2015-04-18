@@ -13,8 +13,10 @@ Route::get('/prueba', function()
 
 Route::get('/profile', array('before' => 'auth', function()
 {
-	return View::make('perfil.perfil')
-                ->with("nombre", Auth::user()->nombre);
+    $publicaciones = Publicacion::orderBy('id','desc')->get();
+    return View::make('perfil.perfil')
+            ->with("nombre", Auth::user()->nombre)
+            ->with("publicaciones", $publicaciones);
 
 }));
 
@@ -53,3 +55,4 @@ Route::get('/logout', function()
 Route::controller('Personal','PersonalController');
 Route::controller('ejemplo','EjemploController');
 Route::controller('clase','Clase2Controller');
+Route::controller('publicacion','PublicacionController');
