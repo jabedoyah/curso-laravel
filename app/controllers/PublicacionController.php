@@ -8,6 +8,7 @@ class PublicacionController extends BaseController{
             'tipo' => '0',
             'usuario_id' => Auth::user()->id
         ];
+        //dd($publicacion);
         
         DB::table('publicacion')->insert($publicacion);
         return Redirect::to("/profile");

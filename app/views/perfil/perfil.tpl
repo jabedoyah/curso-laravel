@@ -5,8 +5,11 @@
     {/capture}
 {capture assign="left"}
     
-    <img src="http://gamer.batanga.com/sites/gamer.batanga.com/files/Recordando-Super-Mario-Bros-NES-12.jpg" width="150" height="150">
-    <div class="well">Información</div>
+    <img src="{url('assets/img/profile')}/{$foto}" width="150" height="150">
+    <div class="well"><strong>Información</strong><br/>
+        {$nombre}<br/>
+        {$correo}
+    </div>
     {/capture}
     
 {capture assign="right"}
@@ -39,7 +42,7 @@
         </div>
             {foreachelse}
                 
-                <div class='alert alert-info'>Holi, no tienes publicaciones</div>
+                <div class='alert alert-info'>No tienes publicaciones</div>
         {/foreach}
     {/capture}
     
