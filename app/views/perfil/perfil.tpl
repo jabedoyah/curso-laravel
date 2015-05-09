@@ -7,8 +7,20 @@
     
     <img src="{url('assets/img/profile')}/{$foto}" width="150" height="150">
     <div class="well"><strong>Información</strong><br/>
-        {$nombre}<br/>
-        {$correo}
+        {$usuario->nombre}<br/>
+        {$usuario->correo}
+    </div>
+    
+    <hr>
+    
+    <div class="row">
+        <center><h3>Amigos</h3></center>
+        {foreach $amigos as $amigo}
+            <div class='col-sm-4'>
+                <a href="{url('/profile/ver')}/{$amigo->id}"><img with="70" height="70" src="{url('/assets/img/profile')}/{$amigo->id}.jpg"></a>
+                <p>{$amigo->nombre}</p>
+            </div>
+        {/foreach}
     </div>
     {/capture}
     

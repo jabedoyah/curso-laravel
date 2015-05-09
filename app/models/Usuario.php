@@ -9,5 +9,8 @@ class Usuario extends Eloquent{
                         ->orderBy('id', 'desc')
                         ->get();
     }
-
+    
+    public function misAmigos(){
+        return Usuario::where('id','<>',$this->id)->get();
+    }
 }

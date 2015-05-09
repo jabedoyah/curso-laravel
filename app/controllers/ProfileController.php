@@ -13,16 +13,22 @@ class ProfileController extends BaseController{
 
         $s=  trim($s,",");
     
- 
+    $usuario = Usuario::find(Auth::user()->id);
     $publicaciones = Publicacion::where('usuario_id', Auth::user()->id)
                                     ->orderBy('id','desc')
                                     ->get();
+    $listOfFriends = Usuario::find(Auth::user()->id)->misAmigos();
+    
     return View::make('perfil.perfil')
             ->with("nombre", Auth::user()->nombre)
             ->with("correo", Auth::user()->correo)
             ->with("publicaciones", $publicaciones)
             ->with("s" , $s)
-            ->with("foto" , Auth::User()->id.".jpg");
+            ->with("foto" , Auth::User()->id.".jpg")
+            ->with("amigos", $listOfFriends)
+            ->with("usuario", $usuario);
+    
+    
         
     }
     
@@ -33,11 +39,15 @@ class ProfileController extends BaseController{
         $usuario = Usuario::find($id);
         
         if($usuario){
+            $amigos = $usuario->misAmigos();
             $publicaciones = $usuario->misPublicaciones();
             return View::make('perfil.perfil')
             ->with("nombre", $usuario->nombre)
             ->with("publicacion", $publicaciones)
-            ->with("foto" , $usuario->id.".jpg");
+            ->with("foto" , $usuario->id.".jpg")
+            ->with("amigos", $amigos)
+            ->with("usuario", $usuario);
+            
             
         }else{
             return Redirect::to("/profile");
